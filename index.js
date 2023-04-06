@@ -8,7 +8,7 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended:false}))
 
 app.get('/', (req, res) => {
-    res.send('welcome home Brian')
+    res.render('index')
 })
 
 app.use('/users', require('./controllers/users.js'))
