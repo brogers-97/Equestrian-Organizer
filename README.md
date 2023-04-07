@@ -7,12 +7,15 @@ Equestrian Organizer is a simple and user-friendly application designed for eque
 Weather API - https://www.weatherapi.com
 limits at 5,000,000 calls per month
 ![WeatherAPI](./images/weatherAPI.png)
-
+---
+## RESTful Routing Chart
 ![RESTful Routing Chart](./images/Restful.png)
 ---
+## ERD
 ![ERD](./images/erd.png)
 ---
-![Wirefram](./images/wireframe.png)
+## Wireframe
+![Wireframe](./images/wireframe.png)
 ---
 ## User Stories
 * User needs to be able to create an account and log in so that they can have a personalized experience.
