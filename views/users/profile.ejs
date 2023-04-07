@@ -1,0 +1,22 @@
+<%- include('../partials/header.ejs') %>
+<h1>Welcome to your profile</h1>
+<p>I hope you enjoy using our app</p>
+    <form method="GET" action="/horses">
+        <label>Horses</label>
+        <select name="horses" id="horses">
+            <%horses.forEach(horse => { %>
+                <option value="<%=horse.id%>"><%=horse.name%></option>
+            <%})%>
+        </select>
+        <button type="submit">Select Horse</button>
+    </form>
+    <a href="/horses">Add New</a>
+    <br>
+<label type="text" id="horses">Tasks</label>
+    <select name="tasks" id="tasks">
+        
+    </select>
+    <button onclick="location.href='../horses/new.ejs'">Add New</button>
+
+<%- include('../partials/footer.ejs') %>
+

@@ -1,0 +1,24 @@
+<%- include('../partials/header.ejs') %>
+<h1>add new horse</h1>
+<form method="POST" action="/horses" style="display: flex; flex-direction: column;" >
+    <label for="type">Type</label>
+    <input type="text" name="type" id="type">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name">
+    <label for="breed">Breed</label>
+    <input type="text" name="breed" id="breed">
+    <label for="sex">Sex</label>
+    <input type="text" name="sex" id="sex">
+    <label for="status">Status</label>
+    <input type="text" name="status" id="status">
+    <label for="notes">Notes</label>
+    <input type="text" name="notes" id="notes">
+    <label for="lastChecked">Last Checked</label>
+    <input type="text" name="lastChecked" id="lastChecked">
+    <label for="registration">Registration</label>
+    <input type="text" name="registration" id="registration">
+    <label for="client">Client</label>
+    <input type="text" name="client" id="client">
+    <input type="submit" style="margin-top: 15px;">
+</form>
+<%- include('../partials/footer.ejs') %>
