@@ -20,24 +20,32 @@ limits at 5,000,000 calls per month
 ![Wireframe](./images/wireframe.png)
 ---
 ## User Stories
-* User needs to be able to create an account and log in so that they can have a personalized experience.
-* User needs to be able to add a horse with basic information (name, breed, age, and picture) so that they can keep track of their horses.
-* User needs to be able to delete a horse when it's no longer in their care or if they made a mistake when adding it.
-* User needs to be able to view a list of my horses with their basic information so that they can have an overview of their horses.
-* User needs to be able to assign tasks to their horses (e.g., grooming, feeding, exercise) with deadlines, so that they can manage their care efficiently.
-* User needs to be able to view a list of tasks assigned to each horse so that they can easily see what needs to be done for each horse.
-* User needs to be able to create tasks for themselves (e.g., buying horse feed, scheduling a vet appointment) so that they can stay organized.
-* User needs to be able to view a list of my personal tasks so that they can manage their responsibilities effectively.
+* User needs to be able to create an account and log in so that they can have a personalized experience
+* User needs to be able to add a horse with basic information (name, breed, age, and picture) so that they can keep track of their horses
+* User needs to be able to delete a horse when it's no longer in their care or if they made a mistake when adding it
+* User needs to be able to view a list of my horses with their basic information so that they can have an overview of their horses
+* User needs to be able to assign tasks to their horses (e.g., grooming, feeding, exercise) with deadlines, so that they can manage their care efficiently
+* User needs to be able to view a list of tasks assigned to each horse so that they can easily see what needs to be done for each horse
+* User needs to be able to create tasks for themselves (e.g., buying horse feed, scheduling a vet appointment) so that they can stay organized
+* User needs to be able to view a list of my personal tasks so that they can manage their responsibilities effectively
 ## MVP
-* Simple display of sunrise and sunset on header for user convenience.
-* User authentication and authorization (register, login, logout).
-* CRUD operations for horses (add, edit, delete, view).
-* CRUD operations for tasks (add, edit, delete, view).
-* Assign tasks to horses or users.
-* Responsive and user-friendly interface.
+* Simple display of sunrise and sunset on header for user convenience
+* User authentication and authorization (register, login, logout)
+* CRUD operations for horses (add, edit, delete, view)
+* CRUD operations for tasks (add, edit, delete, view)
+* Assign tasks to horses or users
+* Responsive and user-friendly interface
+* An easy to use form for inputting the data in for the horses with functional buttons
+* An easy to use form for inputting the tasks for the user/horses with functional buttons
 ## Stretches
-* Calendar view for tasks with reminders and notifications.
-* Horse health tracking (vaccinations, vet visits, etc.).
-* Advanced search and filtering options for horses and tasks.
+* Calendar view for tasks with reminders and notifications
+* Horse health tracking (vaccinations, vet visits, etc.)
+* Advanced search and filtering options for horses and tasks
 * Upload personal photos of horse
 * Set up a text reminding system(through twilio)
+* Make the app Ipad accesible
+## Potential Roadblocks
+* I think that having a page that shows the users tasks and also the tasks for the horses could be difficult. I need them to be organized without mixing them up
+* I feel like styling will be the most difficult part for me, putting things into the correct places is important to a good user experience
+* If i use twilio, i want to have the user verify the phone number on their own, so that could be a big hurdle to overcome(if it's possible)
+
