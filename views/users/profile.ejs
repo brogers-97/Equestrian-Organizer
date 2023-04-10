@@ -1,22 +1,24 @@
 <%- include('../partials/header.ejs') %>
-<h1>Welcome to your profile</h1>
-<p>I hope you enjoy using our app</p>
+<h1>Equestrian Organizer</h1>
+
     <form method="GET" action="/horses">
+
         <label>Horses</label>
-        <select name="horses" id="horses">
+
+        <select size="4" onchange= "window.location.href = this.value" >
+            <option value="/horses">Add New</option>
             <%horses.forEach(horse => { %>
-                <option value="<%=horse.id%>"><%=horse.name%></option>
+                <option value="/horses/<%=horse.id%>"><%=horse.name%></option>
             <%})%>
         </select>
-        <button type="submit">Select Horse</button>
+
     </form>
-    <a href="/horses">Add New</a>
+    
     <br>
-<label type="text" id="horses">Tasks</label>
-    <select name="tasks" id="tasks">
-        
+<label>Tasks</label>
+    <select size="4" onchange= "window.location.href = this.value">
+        <option value="/tasks">Add New</option>
     </select>
-    <button onclick="location.href='../horses/new.ejs'">Add New</button>
 
 <%- include('../partials/footer.ejs') %>
 

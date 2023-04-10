@@ -1,0 +1,16 @@
+<%- include('../partials/header.ejs') %>
+<h1>Edit <%=horse.name%> Information</h1>
+<form method="POST" action="/horses/edit/<%=horse.id%>/?_method=PUT">
+<label for="">Owner</label>
+<input type="text" name="client" placeholder="<%=horse.client%>">
+<br>
+<label for="">Status</label>
+<input type="text" name="status" placeholder="<%=horse.status%>">
+<br>
+<label for="">Registration Number</label>
+<input type="text" name="registration" placeholder="<%=horse.registration%>">
+<p>Id: <%=horse.id%></p>
+<button type="submit">Edit</button>
+</form>
+
+<%- include('../partials/footer.ejs') %>
