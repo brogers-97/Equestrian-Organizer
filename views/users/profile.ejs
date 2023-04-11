@@ -1,24 +1,29 @@
 <%- include('../partials/header.ejs') %>
-<h1>Equestrian Organizer</h1>
 
-    <form method="GET" action="/horses">
-
+<div class="center-boxes">
+<form method="GET" action="/horses">
         <label>Horses</label>
-
-        <select size="4" onchange= "window.location.href = this.value" >
-            <option value="/horses">Add New</option>
-            <%horses.forEach(horse => { %>
-                <option value="/horses/<%=horse.id%>"><%=horse.name%></option>
-            <%})%>
-        </select>
-
+        <div class="boxes">
+            <select size="8" onclick= "window.location.href = this.value" style="width: 33%">
+                <option class="add-new" value="/horses">-Add New-</option>
+                <%horses.forEach(horse => { %>
+                    <option value="/horses/<%=horse.id%>"><%=horse.name%></option>
+                    <%})%>
+                </select>
+        </div>
     </form>
-    
     <br>
-<label>Tasks</label>
-    <select size="4" onchange= "window.location.href = this.value">
-        <option value="/tasks">Add New</option>
-    </select>
-
+        <label>Tasks</label>
+        <div class="boxes">
+            <select size="8" onclick= "window.location.href = this.value" style="width: 33%">
+                <option class="add-new" value="/tasks/new">-Add New-</option>
+                <%tasks.forEach(task => { %>
+                    <option value="/tasks/<%=task.id%>"><%=task.task%></option>
+                    <%})%>
+                    
+                </select>
+            </div>
+            
+    </div>
 <%- include('../partials/footer.ejs') %>
 

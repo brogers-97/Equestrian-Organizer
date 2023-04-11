@@ -1,10 +1,8 @@
 <%- include('../partials/header.ejs') %>
-<h2>Sign up for an account</h2>
-<form method="POST" action="/users">
-    <label for="email">email:</label>
-    <input type="email" name="email" id="email" required>
-    <label for="password">password:</label>
-    <input type="password" name="password" id="password" required>
+<h2 style="display: flex; justify-content: center; color: white;">Sign up for an account</h2>
+<form method="POST" action="/users" style="display: flex; justify-content: center;">
+    <input type="email" name="email" id="email" required placeholder="email">
+    <input type="password" name="password" id="password" required placeholder="password">
     <input type="submit">
 </form>
 <%- include('../partials/footer.ejs') %>

@@ -53,8 +53,9 @@ app.get('/', (req, res) => {
     })
 })
 
-app.use('/users', require('./controllers/users.js'))
-app.use('/horses', require('./controllers/horses.js'))
+app.use('/users', require('./controllers/users.js')) 
+app.use('/horses', require('./controllers/horses.js')) 
+app.use('/tasks', require('./controllers/tasks.js')) 
 
 
 app.listen(PORT, function(){

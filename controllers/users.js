@@ -104,8 +104,14 @@ router.get('/profile', async (req, res) =>{
             },
             attributes: ['id', 'name']
         })
+        const tasks = await db.task.findAll({
+            where: {
+                userId: userId
+            }
+        })
         res.render('users/profile.ejs',{
-            horses
+            horses,
+            tasks
         })
     }
     //if they are allowed to be here, show them their profile

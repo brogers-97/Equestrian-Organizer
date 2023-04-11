@@ -35,18 +35,34 @@ router.post('/', async (req, res) => {
     }
 })
 
-router.get('/:id', async (req, res) => {
-    const horseId = req.params.id
-    const horse = await db.horses.findOne({
-        where: {
-            id: horseId
-        }
-    })
-    try {
-        res.render('horses/details.ejs', {
-            horse
+
+router.get('/:id/task', (req, res) =>{
+    console.log('Horse ID:', req.params.id)
+    try{
+        console.log('im in the controller')
+        res.render('tasks/horseTask.ejs',{
+            horseId: req.params.id
         })
-    } catch(err){
+    }catch(err){
+        console.log(err)
+    }
+})
+
+router.post('/:id/task', async (req, res) =>{
+    try{
+        const horseId = req.params.id
+        const userData = res.locals.user.dataValues
+        const date = new Date(`${req.body.date} ${req.body.time} GMT-07:00`)
+        const taskData = {
+            task: req.body.task,
+            day: date,
+            time: req.body.time,
+            userId: userData.id,
+            horseId: horseId
+        }
+        await db.task.create(taskData)
+        res.redirect(`/horses/${horseId}`)
+    }catch(err){
         console.log(err)
     }
 })
@@ -96,6 +112,29 @@ router.delete('/:id', async (req, res) => {
         })
         res.redirect('../users/profile')
     }catch(err){
+        console.log(err)
+    }
+})
+
+router.get('/:id', async (req, res) => {
+    const horseId = req.params.id
+    const horse = await db.horses.findOne({
+        where: {
+            id: horseId
+        }
+    })
+    const horseTask = await db.task.findAll({
+        where:{
+            horseId: horseId
+        }
+    })
+    try {
+        console.log(horseTask)
+        res.render('horses/details.ejs', {
+            horse,
+            horseTask
+        })
+    } catch(err){
         console.log(err)
     }
 })

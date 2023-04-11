@@ -14,10 +14,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   task.init({
-    day: DataTypes.STRING,
     task: DataTypes.STRING,
-    horseId: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER
+    day: DataTypes.DATE,
+    time: DataTypes.TIME,
+    userId: DataTypes.INTEGER,
+    horseId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'task',

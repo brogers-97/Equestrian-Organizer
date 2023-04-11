@@ -1,8 +1,8 @@
 <%- include('../partials/header.ejs') %>
-<h1 style="display: flex; justify-content: center; color: white;">Add New Task</h1>
-<form method="POST" action="/tasks/new" style="display: flex; justify-content: center;">
+<h1 style="display: flex; justify-content: center; color: white;">Edit task:</h1>
+<form method="POST" action="/tasks/edit/<%=task.id%>/?_method=PUT" style="display: flex; justify-content: center;">
     <label for="task">To-Do</label>
-    <input type="text" id="task" placeholder="task" name="task">
+    <input type="text" id="task" placeholder="<%=task.task%>" name="task">
     <label for="date">When</label>
     <input type="date" id="date" name="date">
     <label for="time">Time</label>
