@@ -4,6 +4,8 @@ const router = express.Router()
 const db = require('../models')
 const bcrypt = require('bcrypt')
 const cryptoJs = require('crypto-js')
+const axios = require('axios')
+const weatherToken = process.env.API_KEY
 //mount routes
 
 // GET /users/new -- show route for a form that creates a new user (sign up for the app)
@@ -109,9 +111,26 @@ router.get('/profile', async (req, res) =>{
                 userId: userId
             }
         })
+        const literalDate = new Date().toLocaleString().split(',')[0]
+        function displayDate(){
+            const currentDate = new Date().toLocaleDateString('en-US', {weekday:'long',month:'long',day:'numeric'});
+            return currentDate
+        }
+        function displayTime(){
+            const currentTime = new Date().toLocaleTimeString('en-US', {hour:'2-digit',minute:'2-digit',hour12:true})
+            return currentTime
+        }
+        const zipCode = 85205
+        const response = await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${weatherToken}&q=${zipCode}&days=1&aqi=no&alerts=no`)
+        const sunTimer = response.data
+        
         res.render('users/profile.ejs',{
             horses,
-            tasks
+            tasks,
+            displayTime,
+            displayDate,
+            sunTimer,
+            literalDate
         })
     }
     //if they are allowed to be here, show them their profile

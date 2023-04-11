@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser')
 const cryptoJs = require('crypto-js')
 const db = require('./models')
 app.set('view engine', 'ejs')
+app.use(express.static(__dirname + '/public/'))
 
 //tells express to parse incoming cookies sent from the browser
 app.use(express.urlencoded({extended:false}))

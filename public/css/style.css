@@ -1,0 +1,101 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    background-color: rgb(65, 99, 140);
+}
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(225, 188, 176);
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+li {
+    margin: 0 10px;
+}
+.title {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 50px;
+    padding: 15px;
+    color:rgb(174, 106, 97);
+}
+.boxes {
+    display: flex;
+    justify-content: center;
+}
+label {
+    display: flex;
+    justify-content: center;
+    padding: 7px;
+    text-decoration: underline;
+    color:white;
+}
+.add-new{
+    color:rgb(174, 106, 97)
+}
+a {
+    color:rgb(174, 106, 97)
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+.date-time, .center-boxes, .today-task {
+    flex-basis: 33%;
+    text-align: center;
+}
+.date-box {
+    border: 2px solid white;
+    margin: 15px;
+    color: white;
+}
+.sunrise {
+    color: orangered;
+    border-bottom: 1px solid orangered;
+}
+.sunset {
+    color: purple;
+    border-bottom: 1px solid purple;
+}
+.time-color {
+    color: white;
+}
+.sun-clock {
+    padding: 15px;
+}
+.horse-task-box {
+    width: 33%;
+}
+.header {
+    display: flex;
+    justify-content: center;
+    color: white;
+    text-decoration: underline;
+}
+.submit-button{
+    margin-top: 15px;
+}
+.horse-input{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 33%;
+}
+.form-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form-wrapper input[type="text"]{
+    padding: 2.5px;
+    margin: 5px;
+}

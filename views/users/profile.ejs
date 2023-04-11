@@ -1,29 +1,74 @@
 <%- include('../partials/header.ejs') %>
 
-<div class="center-boxes">
-<form method="GET" action="/horses">
+
+<div class="container">
+
+    <div class="today-task">
+        <label>Today's Tasks</label>
+        <select size="19" onclick= "window.location.href = this.value" style="width: 80%">
+            <%tasks.forEach(task => {%>
+                <% if(literalDate === task.dataValues.day.toLocaleString().split(',')[0]){%>
+                    <option value="/tasks/<%=task.id%>"><%=task.task%></option>
+                <%}%>
+            <%})%>
+        </select>
+    </div>
+
+
+
+    <div class="center-boxes">
+        <form method="GET" action="/horses">
+
         <label>Horses</label>
-        <div class="boxes">
-            <select size="8" onclick= "window.location.href = this.value" style="width: 33%">
+            <select size="8" onclick= "window.location.href = this.value" style="width: 80%">
                 <option class="add-new" value="/horses">-Add New-</option>
                 <%horses.forEach(horse => { %>
                     <option value="/horses/<%=horse.id%>"><%=horse.name%></option>
                     <%})%>
                 </select>
-        </div>
-    </form>
-    <br>
+        </form>
+
+        <br>
+
         <label>Tasks</label>
-        <div class="boxes">
-            <select size="8" onclick= "window.location.href = this.value" style="width: 33%">
+            <select size="8" onclick= "window.location.href = this.value" style="width: 80%">
                 <option class="add-new" value="/tasks/new">-Add New-</option>
                 <%tasks.forEach(task => { %>
                     <option value="/tasks/<%=task.id%>"><%=task.task%></option>
                     <%})%>
                     
-                </select>
-            </div>
+            </select>
             
     </div>
+
+
+
+    <div class="date-time">
+        <div class="date-box">
+            <p><%=displayDate()%></p>
+            <p><%=displayTime()%></p>
+        </div>
+
+        <div class="sun-clock">
+        <p>
+            <span class="sunrise">
+                Sunrise: <span class="time-color"><%=sunTimer.forecast.forecastday[0].astro.sunrise%></span>
+            </span>
+        </p>
+
+        <p>
+            <span class="sunset">Sunset: 
+                <span class="time-color"><%=sunTimer.forecast.forecastday[0].astro.sunset%>
+                </span>
+            </span>
+        </p>
+        </div>
+
+        <p class="time-color">Current UV index: <%=sunTimer.current.uv%></p>
+    </div>
+
+
+</div>
+
 <%- include('../partials/footer.ejs') %>
 
