@@ -80,10 +80,15 @@ router.delete('/:id', async (req, res) =>{
 router.get('/api', async (req, res) => {
     try{
         const tasks = await db.task.findAll()
-        res.json(tasks)
+        const users = await db.user.findAll()
+        const currentUserId = res.locals.user.dataValues;
+        res.json({
+            tasks: tasks,
+            users: users,
+            currentUserId: currentUserId
+        })
     }catch(err){
         console.log(err)
-        res.status(500).json({error: 'An error occurred while fetching tasks'});
     }
 })
 

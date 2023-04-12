@@ -2,6 +2,7 @@
 require('dotenv').config()
 const express = require('express')
 // app config
+const cors = require('cors')
 const app = express()
 const PORT = process.env.PORT || 8000
 const cookieParser = require('cookie-parser')
@@ -9,6 +10,7 @@ const cryptoJs = require('crypto-js')
 const db = require('./models')
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/public/'))
+app.use(cors())
 
 //tells express to parse incoming cookies sent from the browser
 app.use(express.urlencoded({extended:false}))
