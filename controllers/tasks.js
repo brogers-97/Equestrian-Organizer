@@ -12,13 +12,13 @@ router.post('/new', async (req, res) => {
     try{
         const userData = res.locals.user.dataValues
         const date = new Date(`${req.body.date} ${req.body.time} GMT-07:00`) 
-        console.log("selected date",date.toLocaleString('en-US'))
         const taskData = {
             task: req.body.task,
             day: date,
             time: req.body.time,
             userId: userData.id
         }
+        console.log('new time',taskData.time)
         await db.task.create(taskData)
         res.redirect('/users/profile')
     }catch(err){
@@ -45,6 +45,7 @@ router.get('/edit/:id', async (req, res) => {
 router.put('/edit/:id', async (req, res) => {
     try{
         const taskId = req.params.id
+        const date = new Date(`${req.body.date} ${req.body.time} GMT-07:00`)
         task = await db.task.findOne({
             where:{
                 id: taskId
@@ -52,12 +53,11 @@ router.put('/edit/:id', async (req, res) => {
         })
         await task.update({
             task: req.body.task || task.task,
-            day: req.body.date || horse.date,
+            day: date,
             time: req.body.time || task.time
         })
-        res.redirect(`/tasks/${taskId}`,{
-            task
-        })
+        console.log('edited time',task.dataValues.time)
+        res.redirect(`/tasks/${taskId}`)
     }catch(err){
         console.log(err)
     }
@@ -74,6 +74,16 @@ router.delete('/:id', async (req, res) =>{
         res.redirect('../users/profile')
     }catch(err){
 
+    }
+})
+
+router.get('/api', async (req, res) => {
+    try{
+        const tasks = await db.task.findAll()
+        res.json(tasks)
+    }catch(err){
+        console.log(err)
+        res.status(500).json({error: 'An error occurred while fetching tasks'});
     }
 })
 

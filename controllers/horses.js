@@ -27,7 +27,6 @@ router.post('/', async (req, res) => {
             client: req.body.client,
             foreignKey: userData.id
         }
-        console.log(userData)
         await db.horses.create(horseData)
         res.redirect('/users/profile')
     } catch (err) {
@@ -129,7 +128,6 @@ router.get('/:id', async (req, res) => {
         }
     })
     try {
-        console.log(horseTask)
         res.render('horses/details.ejs', {
             horse,
             horseTask
