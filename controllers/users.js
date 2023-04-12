@@ -116,18 +116,12 @@ router.get('/profile', async (req, res) =>{
             const currentDate = new Date().toLocaleDateString('en-US', {weekday:'long',month:'long',day:'numeric'});
             return currentDate
         }
-        function displayTime(){
-            const currentTime = new Date().toLocaleTimeString('en-US', {hour:'2-digit',minute:'2-digit',hour12:true})
-            return currentTime
-        }
         const zipCode = 85205
         const response = await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${weatherToken}&q=${zipCode}&days=1&aqi=no&alerts=no`)
         const sunTimer = response.data
-        
         res.render('users/profile.ejs',{
             horses,
             tasks,
-            displayTime,
             displayDate,
             sunTimer,
             literalDate

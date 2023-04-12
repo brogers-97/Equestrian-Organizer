@@ -1,26 +1,46 @@
 <%- include('../partials/header.ejs') %>
-<h1><%=horse.name%></h1>
-<p>Owner: <%=horse.client%></p>
-<p>Status: <%=horse.status%></p>
-<p>Registration Number: <%=horse.registration%></p>
-<p>Id: <%=horse.id%></p>
 
-<form method="GET" action="/horses/edit/<%=horse.id%>">
-    <button type="submit">Edit</button>
-</form>
+<div class="container">
 
+<div class="horse-photo">
+    <img class="horse-img" src="https://www.treehugger.com/thmb/kaA2K_9wVzTbPIyCRm3-oZuy6k0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/horse.primary-e9a47e1c486c4fb7bf729e05b59cf0df.jpg" alt="">
+</div>
 
-<form method="POST" action="/horses/<%=horse.id%>?_method=DELETE">
-    <button type="submit">Delete</button>
-</form>
+<div class="horse-details">
 
-<select size="4" onclick= "window.location.href = this.value" style="width: 33%">
-    <option class="add-new" value="/horses/<%= horse.id %>/task">-Add New-</option>
-    <%horseTask.forEach(task => { %>
-        <option value="/tasks/<%=task.id%>"><%=task.dataValues.task%></option>
-    <%})%>
+    <div class="horse-info">
+        <h1><%=horse.name%></h1>
+        <p>Owner: <%=horse.client%></p>
+        <p>Status: <%=horse.status%></p>
+        <p>Registration Number: <%=horse.registration%></p>
+    </div>
 
-     </select>
+    <div class="horse-buttons">
+        <form method="GET" action="/horses/edit/<%=horse.id%>">
+            <button type="submit">Edit</button>
+        </form>
+    
+        <form method="POST" action="/horses/<%=horse.id%>?_method=DELETE">
+            <button type="submit">Delete</button>
+        </form>
+    </div>
 
+</div>
+
+<div class="horses-tasks">
+    <h2 class="header">Tasks for <%=horse.name%></h2>
+    <select size="16" onclick= "window.location.href = this.value" style="width: 80%" class="horse-task-box">
+
+        <option class="add-new" value="/horses/<%= horse.id %>/task">-Add New-</option>
+
+        <%horseTask.forEach(task => { %>
+            <option value="/tasks/<%=task.id%>"><%=task.dataValues.task%></option>
+        <%})%>    
+
+    </select>
+</div>
+
+</div>
+        
 
 <%- include('../partials/footer.ejs') %>

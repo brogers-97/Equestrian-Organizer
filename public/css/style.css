@@ -99,3 +99,34 @@ a {
     padding: 2.5px;
     margin: 5px;
 }
+.horse-photo, .horse-details, .horses-tasks {
+    flex-basis: 33%;
+    text-align: center;
+}
+.horse-img {
+    max-width: 100%;
+    margin: 15px;
+}
+.horse-info{
+    text-align: left;
+    padding-left: 25px;
+}
+.horse-buttons {
+    text-align: left;
+    padding-left: 25px;
+}
+.horse-buttons form {
+    display: inline-block;
+    margin-right: 10px;
+}
+.task-details{
+    text-align: left;
+    padding-left: 25px;
+}
+.task-buttons form {
+    display: inline-block;
+    margin-right: 10px;
+}
+.task-color{
+    color: orange
+}
