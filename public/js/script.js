@@ -10,6 +10,8 @@ function displayTime(){
 
 
 
+
+
 function alertClient(){
     axios.get('/tasks/api')
     .then((response) =>{
@@ -19,7 +21,9 @@ function alertClient(){
         const currentDate = new Date().toISOString().slice(0,10)
         tasks.forEach(task => {
             if(task.userId === currentUser && currentTime === task.time && currentDate === task.day.slice(0,10)){
-                console.log('a reminder for: ',task.task)
+                let message = `A reminder for: ${task.task}`
+                console.log(message)
+                sendMessageToServer(message)
             }
         })
     })
@@ -27,6 +31,22 @@ function alertClient(){
         console.log(err)
     })
 }
+
+function sendMessageToServer(message){
+    if(message){
+
+        axios.post('/tasks/send-message', {message})
+        .then((response)=> {
+            console.log('message sent successfully')
+        })
+        .catch((err) => {
+            console.log('error sending message', err)
+        })
+    } else{
+        console.log('message in empty')
+    }
+}
+
 
 setInterval(displayTime, 1000)
 setInterval(alertClient, 1000)
