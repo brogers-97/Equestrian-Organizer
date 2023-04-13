@@ -8,9 +8,12 @@ const PORT = process.env.PORT || 8000
 const cookieParser = require('cookie-parser')
 const cryptoJs = require('crypto-js')
 const db = require('./models')
+const bodyParser = require('body-parser')
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/public/'))
 app.use(cors())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 //tells express to parse incoming cookies sent from the browser
 app.use(express.urlencoded({extended:false}))

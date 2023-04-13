@@ -19,13 +19,15 @@ function alertClient(){
         const currentUser = response.data.currentUserId.id
         const tasks = response.data.tasks
         const currentDate = new Date().toISOString().slice(0,10)
-        tasks.forEach(task => {
-            if(task.userId === currentUser && currentTime === task.time && currentDate === task.day.slice(0,10)){
-                let message = `A reminder for: ${task.task}`
-                console.log(message)
-                sendMessageToServer(message)
-            }
-        })
+        if(currentUser){
+            tasks.forEach(task => {
+                if(task.userId === currentUser && currentTime === task.time && currentDate === task.day.slice(0,10)){
+                    let message = `A reminder for: ${task.task}`
+                    console.log(message)
+                    sendMessageToServer(message)
+                }
+            })
+        }
     })
     .catch((err) => {
         console.log(err)
@@ -34,7 +36,6 @@ function alertClient(){
 
 function sendMessageToServer(message){
     if(message){
-
         axios.post('/tasks/send-message', {message})
         .then((response)=> {
             console.log('message sent successfully')
