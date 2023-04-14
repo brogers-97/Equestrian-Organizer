@@ -111,16 +111,23 @@ router.get('/profile', async (req, res) =>{
                 userId: userId
             }
         })
+
         const literalDate = new Date().toLocaleString().split(',')[0]
+        //this function creates the current date and formats it for user convenience.
         function displayDate(){
             const currentDate = new Date().toLocaleDateString('en-US', {weekday:'long',month:'long',day:'numeric'});
             return currentDate
         }
+
+        // declares variables used in weather api
         const zipCode = 85205
         const response = await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${weatherToken}&q=${zipCode}&days=1&aqi=no&alerts=no`)
+
         const dayClock = response.data.location.localtime.split(' ')[1]
         const sunTimer = response.data
-        console.log('the time is:',dayClock)
+        
+
+        // all the info on line 125 -> 131 is being passed to profile.ejs
         res.render('users/profile.ejs',{
             horses,
             tasks,
