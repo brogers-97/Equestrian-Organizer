@@ -5,7 +5,7 @@ Equestrian Organizer is a simple and user-friendly application designed for eque
 
 ## Installation Instructions
 * Fork this respository
-* Click on code buttona and copy the HTTPS link
+* Click on code button and copy the HTTPS link
 * In your terminal type out "git clone" and then paste your link
 * After it loads you will have access to the code
 
