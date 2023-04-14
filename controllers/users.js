@@ -118,13 +118,16 @@ router.get('/profile', async (req, res) =>{
         }
         const zipCode = 85205
         const response = await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${weatherToken}&q=${zipCode}&days=1&aqi=no&alerts=no`)
+        const dayClock = response.data.location.localtime.split(' ')[1]
         const sunTimer = response.data
+        console.log('the time is:',dayClock)
         res.render('users/profile.ejs',{
             horses,
             tasks,
             displayDate,
             sunTimer,
-            literalDate
+            literalDate,
+            dayClock
         })
     }
     //if they are allowed to be here, show them their profile

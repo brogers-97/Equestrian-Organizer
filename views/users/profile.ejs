@@ -5,7 +5,7 @@
 
     <div class="today-task">
         <label>Today's Tasks</label>
-        <select size="19" onclick= "window.location.href = this.value" style="width: 80%">
+        <select class="select-shadow" size="19" onclick= "window.location.href = this.value" style="width: 80%">
             <%tasks.forEach(task => {%>
                 <% if(literalDate === task.dataValues.day.toLocaleString().split(',')[0]){%>
                     <option value="/tasks/<%=task.id%>"><%=task.task%></option>
@@ -20,7 +20,7 @@
         <form method="GET" action="/horses">
 
         <label>Horses</label>
-            <select size="8" onclick= "window.location.href = this.value" style="width: 80%">
+            <select class="select-shadow" size="8" onclick= "window.location.href = this.value" style="width: 80%">
                 <option class="add-new" value="/horses">-Add New-</option>
                 <%horses.forEach(horse => { %>
                     <option value="/horses/<%=horse.id%>"><%=horse.name%></option>
@@ -31,7 +31,7 @@
         <br>
 
         <label>Tasks</label>
-            <select size="8" onclick= "window.location.href = this.value" style="width: 80%">
+            <select class="select-shadow" size="8" onclick= "window.location.href = this.value" style="width: 80%">
                 <option class="add-new" value="/tasks/new">-Add New-</option>
                 <%tasks.forEach(task => { %>
                     <option value="/tasks/<%=task.id%>"><%=task.task%></option>
@@ -62,13 +62,15 @@
                 </span>
             </span>
         </p>
-        </div>
-
+        
         <p class="time-color">Current UV index: <%=sunTimer.current.uv%></p>
+    </div>
     </div>
 
 
 </div>
+
+
 
 <%- include('../partials/footer.ejs') %>
 

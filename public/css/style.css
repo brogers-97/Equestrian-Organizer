@@ -13,7 +13,9 @@ nav{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:rgb(225, 188, 176);
+    background-color: #d5bea1;
+    border-bottom: 2px solid black;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 ul {
     list-style-type: none;
@@ -44,7 +46,7 @@ label {
     color:white;
 }
 .add-new{
-    color:rgb(174, 106, 97)
+    color: rgb(52, 74, 91)
 }
 a {
     color:rgb(174, 106, 97)
@@ -61,20 +63,27 @@ a {
     border: 2px solid white;
     margin: 15px;
     color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 .sunrise {
-    color: orangered;
-    border-bottom: 1px solid orangered;
+    color: black;
+    border-bottom: 1px solid black;
 }
 .sunset {
-    color: purple;
-    border-bottom: 1px solid purple;
+    color: black;
+    border-bottom: 1px solid black;
 }
 .time-color {
     color: white;
 }
 .sun-clock {
     padding: 15px;
+    margin: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 .horse-task-box {
     width: 33%;
@@ -84,9 +93,6 @@ a {
     justify-content: center;
     color: white;
     text-decoration: underline;
-}
-.submit-button{
-    margin-top: 15px;
 }
 .horse-input{
     display: flex;
@@ -111,6 +117,7 @@ a {
 .horse-img {
     max-width: 100%;
     margin: 15px;
+    box-shadow: 0 8px 55px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 .horse-info{
     text-align: left;
@@ -124,9 +131,18 @@ a {
     display: inline-block;
     margin-right: 10px;
 }
+.task-details-parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .task-details{
-    text-align: left;
-    padding-left: 25px;
+    text-align: center;
+    padding: 25px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.15);
+    border: 1px solid white;
 }
 .task-buttons form {
     display: inline-block;
@@ -134,4 +150,56 @@ a {
 }
 .task-color{
     color: orange
+}
+.signup-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.signup-form input{
+    margin-bottom: 10px;
+}
+.signup-button{
+    display: block;
+    margin: 0 auto;
+}
+.select-shadow{
+    font-size: 16px;
+    /* color: #5a3e1b; */
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    /* border: 2px solid #8b4513; */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.15);
+    padding: 4px 8px;
+    cursor: pointer;
+}
+button {
+    background-color: #2a415e;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.submit-button{
+    margin-top: 15px;
+    background-color: #2a415e;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

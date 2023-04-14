@@ -4,24 +4,26 @@
 
 <h1 class="header">Selected Task:  <span class="task-color"> <%= currentTask.task%></span></h1>
 
+<div class="task-details-parent">
 
-<div class="task-details">
-    
-    <h2>Due Date:</h2>
-
-    <p><%=currentTask.day.toLocaleDateString('en-US', { weekday:'short',month:'short',day:'numeric'})%></p>
-    <p>Task Due by: <%=currentTask.day.toLocaleTimeString('en-US')%></p>
-
-    <div class="task-buttons">
-        <form method="GET" action="/tasks/edit/<%=currentTask.id%>">
-            <button>Edit</button>
-        </form>
+    <div class="task-details">
         
-        <form method="POST" action="/tasks/<%=currentTask.id%>?_method=DELETE">
-            <button>Delete</button>
-        </form>
+        <h2>Due Date:</h2>
+        
+        <p><%=currentTask.day.toLocaleDateString('en-US', { weekday:'short',month:'short',day:'numeric'})%></p>
+        <p>Task Due by: <%=currentTask.day.toLocaleTimeString('en-US')%></p>
+        
+        <div class="task-buttons">
+            <form method="GET" action="/tasks/edit/<%=currentTask.id%>">
+                <button>Edit</button>
+            </form>
+            
+            <form method="POST" action="/tasks/<%=currentTask.id%>?_method=DELETE">
+                <button>Delete</button>
+            </form>
+        </div>
+        
     </div>
-    
 </div>
 
 

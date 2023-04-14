@@ -4,7 +4,9 @@ function displayTime(){
     const timeElement = document.getElementById('time')
     const rawTime = new Date().toLocaleTimeString('en-US', {hour12: false})
     const currentTime = new Date().toLocaleTimeString('en-US', {hour:'2-digit',minute:'2-digit',hour12:true})
-    timeElement.textContent = currentTime
+    if(timeElement){
+        timeElement.textContent = currentTime
+    }
     return rawTime
 }
 
@@ -16,12 +18,15 @@ function alertClient(){
     axios.get('/tasks/api')
     .then((response) =>{
         const currentTime = displayTime()
+        //console.log(currentTime)
         const currentUser = response.data.currentUserId.id
+        //console.log(currentUser)
         const tasks = response.data.tasks
+        //console.log(tasks)
         const currentDate = new Date().toISOString().slice(0,10)
         if(currentUser){
             tasks.forEach(task => {
-                if(task.userId === currentUser && currentTime === task.time && currentDate === task.day.slice(0,10)){
+                if(currentTime.slice(0,5) === task.time.slice(0,5) && currentDate === task.day.slice(0,10)){
                     let message = `A reminder for: ${task.task}`
                     console.log(message)
                     sendMessageToServer(message)
@@ -49,5 +54,5 @@ function sendMessageToServer(message){
 }
 
 
-setInterval(displayTime, 1000)
-setInterval(alertClient, 1000)
+setInterval(displayTime, 30000)
+setInterval(alertClient, 30000)

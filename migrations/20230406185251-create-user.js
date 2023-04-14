@@ -22,6 +22,12 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      phone: {
+        type: Sequelize.STRING
+      },
+      zip: {
+        type: Sequelize.STRING
       }
     });
   },
