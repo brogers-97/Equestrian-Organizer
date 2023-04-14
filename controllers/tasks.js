@@ -7,10 +7,14 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require("twilio")(accountSid, authToken);
 router.use(methodOverride('_method'))
 
+
+
 router.get('/new', (req, res) => {
     res.render('tasks/new.ejs')
 })
 
+
+// send info to ejs file for creating a profile page with list of tasks
 router.post('/new', async (req, res) => {
     try{
         const userData = res.locals.user.dataValues
@@ -29,6 +33,8 @@ router.post('/new', async (req, res) => {
     }
 })
 
+
+// renders the ejs file to edit a specific task
 router.get('/edit/:id', async (req, res) => {
     const tasksId = req.params.id
     const task = await db.task.findOne({
@@ -45,6 +51,8 @@ router.get('/edit/:id', async (req, res) => {
     }
 })
 
+
+// alters the info of specific task inside of the database
 router.put('/edit/:id', async (req, res) => {
     try{
         const taskId = req.params.id
@@ -66,6 +74,8 @@ router.put('/edit/:id', async (req, res) => {
     }
 })
 
+
+// destroys specific task inside database
 router.delete('/:id', async (req, res) =>{
     const taskId = req.params.id
     try{
@@ -80,6 +90,8 @@ router.delete('/:id', async (req, res) =>{
     }
 })
 
+
+// an api I created to send info to my script.js file.
 router.get('/api', async (req, res) => {
     try{
         if(res.locals.user){
@@ -87,7 +99,7 @@ router.get('/api', async (req, res) => {
             const users = await db.user.findAll()
             const currentUserId = res.locals.user.dataValues;
             
-            
+            // line 103 -> 107 is all database info use in the script.js file
             res.json({
                 tasks: tasks,
                 users: users,
@@ -99,10 +111,13 @@ router.get('/api', async (req, res) => {
     }
 })
 
+
+// the recieves the api request sent from the script.js file
 router.post('/send-message', async (req, res) => {
     try{
         message = req.body.message
         console.log('received message:',message)
+        // this function is being called when a task is found and the message created in the script.js file is being passed through to the users cell phone.
         await sendMessage(message)
         res.sendStatus(200)
     }catch(err){
@@ -110,6 +125,8 @@ router.post('/send-message', async (req, res) => {
     }
 })
 
+
+// this function uses Twilio npm. It sends the passed in message from the twilio number on line 135 to the users phone on 136. (didnt have time to finish pulling users phone number and setting it to a variable then passing into this function.)
 async function sendMessage(message) {
     if(message){
         try{
@@ -128,6 +145,7 @@ async function sendMessage(message) {
 }
 
 
+// renders the ejs of a specific task
 router.get('/:id', async (req, res) => {
     const taskId = req.params.id
     const currentTask = await db.task.findOne({

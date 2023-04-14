@@ -1,6 +1,8 @@
 // required packages
 require('dotenv').config()
 const express = require('express')
+
+
 // app config
 const cors = require('cors')
 const app = express()
@@ -9,21 +11,28 @@ const cookieParser = require('cookie-parser')
 const cryptoJs = require('crypto-js')
 const db = require('./models')
 const bodyParser = require('body-parser')
+
+
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/public/'))
 app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
+
 //tells express to parse incoming cookies sent from the browser
 app.use(express.urlencoded({extended:false}))
 app.use(cookieParser())
+
+
 
 app.use((req, res, next) => {
     console.log(`[${new Date().toLocaleString()}]: ${req.method} ${req.url}`)
     console.log('request body:', req.body)
     next() //tell epress that this middleware has finished
 })
+
+
 
 // custom auth middleware
 app.use( async (req, res, next) => {
@@ -52,6 +61,8 @@ app.use( async (req, res, next) => {
     }
 })
 
+
+
 app.get('/', (req, res) => {
     console.log(res.locals)
     res.render('index.ejs', {
@@ -59,9 +70,13 @@ app.get('/', (req, res) => {
     })
 })
 
+
+
+// links all of the controllers being used.
 app.use('/users', require('./controllers/users.js')) 
 app.use('/horses', require('./controllers/horses.js')) 
 app.use('/tasks', require('./controllers/tasks.js')) 
+
 
 
 app.listen(PORT, function(){

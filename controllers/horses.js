@@ -4,14 +4,19 @@ const db = require('../models')
 const methodOverride = require('method-override')
 router.use(methodOverride('_method'))
 
+
 router.get('/', (req, res) => {
     res.redirect('horses/new')
 })
 
+
+// when user clicks on "add new" in the horse page, this redirects to the ejs file assosicated
 router.get('/new',(req, res) => {
     res.render('horses/new.ejs')
 })
 
+
+// this allows the user to create a new horse and post into the horse model
 router.post('/', async (req, res) => {
     try {
         const userData = res.locals.user.dataValues
@@ -35,6 +40,7 @@ router.post('/', async (req, res) => {
 })
 
 
+// Renders the ejs file with the specific horse task clicked on by user
 router.get('/:id/task', (req, res) =>{
     console.log('Horse ID:', req.params.id)
     try{
@@ -47,6 +53,8 @@ router.get('/:id/task', (req, res) =>{
     }
 })
 
+
+// sends the info to the ejs file for task creation on a specific horse
 router.post('/:id/task', async (req, res) =>{
     try{
         const horseId = req.params.id
@@ -66,6 +74,8 @@ router.post('/:id/task', async (req, res) =>{
     }
 })
 
+
+// renders the ejs file to edit chosen horse
 router.get('/edit/:id', async (req, res) => {
     const horseId = req.params.id
     const horse = await db.horses.findOne({
@@ -82,6 +92,8 @@ router.get('/edit/:id', async (req, res) => {
     }
 })
 
+
+// this will pull user input and update the specific horse in the database
 router.put('/edit/:id', async (req, res) => {
     try{
         const horseId = req.params.id
@@ -101,6 +113,8 @@ router.put('/edit/:id', async (req, res) => {
     }
 })
 
+
+// Will destroy specific horse in database
 router.delete('/:id', async (req, res) => {
     const horseId = req.params.id
     try{
@@ -115,6 +129,8 @@ router.delete('/:id', async (req, res) => {
     }
 })
 
+
+// renders ejs page with chosen horse and details
 router.get('/:id', async (req, res) => {
     const horseId = req.params.id
     const horse = await db.horses.findOne({
