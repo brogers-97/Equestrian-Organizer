@@ -120,7 +120,7 @@ router.get('/profile', async (req, res) =>{
         }
 
         // declares variables used in weather api
-        const zipCode = 85205
+        const zipCode = 85210
         const response = await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${weatherToken}&q=${zipCode}&days=1&aqi=no&alerts=no`)
 
         const dayClock = response.data.location.localtime.split(' ')[1]

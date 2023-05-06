@@ -1,11 +1,13 @@
 <%- include('../partials/header.ejs') %>
 <h1 class="header">Edit <%=horse.name%> Information</h1>
 
-<form method="POST" action="/horses/edit/<%=horse.id%>/?_method=PUT" style="display: flex; justify-content: center;">
-    <input type="text" name="client" placeholder="client">
-    <input type="text" name="status" placeholder="status">
-    <input type="text" name="registration" placeholder="registration">
-    <button type="submit">Edit</button>
-</form>
+<div class="edit-horse-container">
+    <form method="POST" action="/horses/edit/<%=horse.id%>/?_method=PUT" class="edit-horse-form">
+        <input type="text" name="client" placeholder="client">
+        <input type="text" name="status" placeholder="status">
+        <input type="text" name="registration" placeholder="registration">
+        <button type="submit">Edit</button>
+    </form>
+</div>
 
 <%- include('../partials/footer.ejs') %>

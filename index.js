@@ -6,7 +6,7 @@ const express = require('express')
 // app config
 const cors = require('cors')
 const app = express()
-const PORT = process.env.PORT || 8000
+const PORT = process.env.PORT || 3000
 const cookieParser = require('cookie-parser')
 const cryptoJs = require('crypto-js')
 const db = require('./models')

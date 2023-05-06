@@ -55,6 +55,5 @@ function sendMessageToServer(message){
     }
 }
 
-// both of these functions are being called every 30 seconds.
 setInterval(displayTime, 30000)
-setInterval(alertClient, 30000)
+setInterval(alertClient, 30000) 

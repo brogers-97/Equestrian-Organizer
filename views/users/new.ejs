@@ -1,14 +1,19 @@
 <%- include('../partials/header.ejs') %>
-<h2 style="display: flex; justify-content: center; color: white;">Sign up for an account</h2>
-<form method="POST" action="/users" class="signup-form">
-    <div class="email-password">
-        <input type="email" name="email" id="email" required placeholder="email">
-        <input type="password" name="password" id="password" required placeholder="password">
-    </div>
-    <div class="phone-zip">
-        <input type="tel" name="phone-number" id="phone-number" required placeholder="phone number">
-        <input type="text" name="zip-code" id="zip-code" required placeholder="zip code">
-    </div>
-    <input class="signup-button" type="submit">
-</form>
+<h2 style="display: flex; justify-content: center; color: white;">Register for an account</h2>
+
+<div class="form-container">
+    <form class="login-form" method="POST" action="/users" class="signup-form">
+        
+            <input type="email" name="email" id="email" required placeholder="email">
+            <input type="password" name="password" id="password" required placeholder="password">
+        
+        
+            <input type="tel" name="phone-number" id="phone-number" required placeholder="phone number">
+            <input type="zip" name="zip-code" id="zip-code" required placeholder="zip code">
+        
+        <input class="signup-button" type="submit">
+    </form>
+</div>
+
+
 <%- include('../partials/footer.ejs') %>

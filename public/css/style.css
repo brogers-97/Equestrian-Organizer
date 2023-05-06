@@ -34,6 +34,19 @@ li {
     padding: 15px;
     color:rgb(174, 106, 97);
 }
+.head-title {
+    font-size: 50px;
+    padding: 20px;
+    color:rgb(174, 106, 97);
+    text-decoration: none;
+}
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 50%;
+    align-items: flex-end;
+}
 .boxes {
     display: flex;
     justify-content: center;
@@ -93,18 +106,35 @@ a {
     justify-content: center;
     color: white;
     text-decoration: underline;
+    z-index: 3;
+    position: relative;
+}
+.nav-bar{
+    z-index: 9999;
+    position: relative;
 }
 .horse-input{
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
-    width: 33%;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));
+}
+.horse-input input[type="submit"]:hover {
+    background-color: #2d3f5e;
+}
+.horse-input input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 .form-wrapper{
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    
 }
 .form-wrapper input[type="text"]{
     padding: 2.5px;
@@ -118,6 +148,7 @@ a {
     max-width: 100%;
     margin: 15px;
     box-shadow: 0 8px 55px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
 }
 .horse-info{
     text-align: left;
@@ -151,6 +182,13 @@ a {
 .task-color{
     color: orange
 }
+.signing-options{
+    display: flex;
+    margin-left: auto;
+}
+.signing-options > div{
+    margin: 10px;
+}
 .signup-form{
     display: flex;
     flex-direction: column;
@@ -173,6 +211,7 @@ a {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.15);
     padding: 4px 8px;
     cursor: pointer;
+    border: none;
 }
 button {
     background-color: #2a415e;
@@ -202,4 +241,195 @@ button {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.wallpaper{
+    opacity: 1;
+    position: fixed;
+    background-size: cover;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    text-align: center;
+    vertical-align: middle;
+}
+.wallpaper img {
+    display: inline-block;
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+}
+.form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+.login-form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+}
+.login-form input[type="email"],
+.login-form input[type="password"],
+.login-form input[type="tel"],
+.login-form input[type="zip"]{
+    display: block;
+    padding: 12px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    font-size: 16px;
+    color: #444;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.login-form input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #374a6a;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-form input[type="submit"]:hover {
+    background-color: #2d3f5e;
+}
+
+.login-form input[type="email"]:focus,
+.login-form input[type="password"]:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+}
+select::-webkit-scrollbar {
+    width: 12px;
+}
+select::-webkit-scrollbar-thumb {
+    background-color: #374a6a;
+    border-radius: 5px;
+}
+.task-form-container {
+    display: flex;
+    justify-content: center;
+}
+
+.task-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));
+}
+
+.task-form label {
+    font-size: 16px;
+    color: #444;
+}
+
+.task-form input[type="text"],
+.task-form input[type="date"],
+.task-form input[type="time"] {
+    display: block;
+    padding: 12px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: 16px;
+    color: #444;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.task-form input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #374a6a;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.task-form input[type="submit"]:hover {
+    background-color: #2d3f5e;
+}
+
+.task-form input[type="text"]:focus,
+.task-form input[type="date"]:focus,
+.task-form input[type="time"]:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.edit-horse-container {
+    display: flex;
+    justify-content: center;
+}
+
+.edit-horse-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));
+}
+
+.edit-horse-form input[type="text"] {
+    display: block;
+    padding: 12px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: 16px;
+    color: #444;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.edit-horse-form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #374a6a;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-horse-form button[type="submit"]:hover {
+    background-color: #2d3f5e;
+}
+
+.edit-horse-form input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.5);
 }

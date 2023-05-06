@@ -14,21 +14,32 @@
     
 </head>
 <body>
-    <nav>
-        <ul>
+    <nav class="nav-bar">
+        <div class="header-container">
             <!-- shown regardless if the user is logged in or out -->
             <!-- shown when the user is logged in -->
             <% if (user) { %>
-                <li><a href="/users/profile">Profile</a></li>
-                <li class="title">Equestrian Organizer</li>
-                <li><a href="/users/logout">Logout</a></li>
+
+                <div>
+                    <a class="head-title" href="/users/profile">Equestrian Organizer</a>
+                </div>
+
+                <div style="margin: 10px;">
+                    <a href="/users/logout">Logout</a>
+                </div>
+
                 <% } else { %>
                 <!-- shown when the user is logged out -->
-                <li><a href="/">Home</a></li>
-                <li class="title">Equestrian Organizer</li>
-                <li><a href="/users/new">Sign up</a></li>
-                <li><a href="/users/login">Sign in</a></li>
+                <div>
+                    <a class="head-title" href="/">Equestrian Organizer</a>
+                </div>
+
+                <div class="signing-options">
+                    <div><a href="/users/new">Sign up</a></div>
+                    <div><a href="/users/login">Sign in</a></div>
+                </div>
+
             <% } %>
             
-        </ul>
+        </div>
     </nav>

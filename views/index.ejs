@@ -1,5 +1,31 @@
 <%- include('./partials/header.ejs') %>
-<h1 class="header">welcome user</h1>
 
+
+    <div class="wallpaper" id="wallpaper">
+        <img id="horse1" src="images/horse1.jpeg" alt="horse" style="display:none;">
+        <img id="horse2" src="images/horse2.jpeg" alt="horse" style="display:none;">
+        <img id="horse3" src="images/horse3.jpeg" alt="horse" style="display:none;">
+        <img id="horse4" src="images/horse4.png" alt="horse" style="display:none;">
+        <img id="horse5" src="images/horse5.webp" alt="horse" style="display:none;">
+        <img id="horse6" src="images/horse6.jpeg" alt="horse" style="display:none;">
+        <img id="horse7" src="images/horse7.webp" alt="horse" style="display:none;">
+        <img id="horse8" src="images/horse8.webp" alt="horse" style="display:none;">
+        <img id="horse9" src="images/horse9.jpeg" alt="horse" style="display:none;">
+    </div>
 
 <%- include('./partials/footer.ejs') %>
+
+<script>
+    const images = document.querySelectorAll('.wallpaper img');
+    let currentImageIndex = 0;
+    function rotateImages() {
+      const nextImageIndex = Math.floor(Math.random() * images.length);
+      images[currentImageIndex].style.display = 'none';
+      const imgUrl = images[nextImageIndex].src;
+      const wallpaper = document.getElementById('wallpaper');
+      wallpaper.style.backgroundImage = "url('" + imgUrl + "')";
+      currentImageIndex = nextImageIndex;
+    }
+    rotateImages();
+    setInterval(rotateImages, 5000);
+</script>
