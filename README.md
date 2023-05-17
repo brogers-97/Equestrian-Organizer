@@ -3,6 +3,8 @@
 ## Keep Track of your horses
 Equestrian Organizer is a simple and user-friendly application designed for equestrians to track and manage their horses. The app allows users to add, delete, and update horses, as well as assign tasks to individual horses or themselves. It provides an organized and efficient way for equestrians to manage their daily activities and horse-related responsibilities.
 
+link to website- https://equestrian-organizer.herokuapp.com/
+
 ## Installation Instructions
 * Fork this respository
 * Click on code button and copy the HTTPS link
