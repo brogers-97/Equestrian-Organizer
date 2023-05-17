@@ -212,6 +212,31 @@ a {
     padding: 4px 8px;
     cursor: pointer;
     border: none;
+    width: 80%;
+}
+.today-task-list {
+    font-size: 16px;
+    /* color: #5a3e1b; */
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    /* border: 2px solid #8b4513; */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.15);
+    padding: 4px 8px;
+    cursor: pointer;
+    border: none;
+    width: 80%;
+}
+.horse-list-main {
+    font-size: 16px;
+    /* color: #5a3e1b; */
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    /* border: 2px solid #8b4513; */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.15);
+    padding: 4px 8px;
+    cursor: pointer;
+    border: none;
+    width: 80%
 }
 button {
     background-color: #2a415e;
@@ -432,4 +457,28 @@ select::-webkit-scrollbar-thumb {
     outline: none;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
     background-color: rgba(255, 255, 255, 0.5);
+}
+.upcoming-task-list-large{
+    display: none;
+}
+@media screen and (min-width: 1041px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+    }
+    .today-task{
+        height: 80%;
+        align-items: center;
+        width: 50%;
+    }
+    .horse-list {
+        height: 80%;
+        align-items: center;
+    }
+    .upcoming-task-list{
+        display: none;
+    }
+    .upcoming-task-list-large{
+        display: block;
+    }
 }

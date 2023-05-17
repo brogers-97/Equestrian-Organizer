@@ -55,5 +55,5 @@ function sendMessageToServer(message){
     }
 }
 
-setInterval(displayTime, 30000)
+setInterval(displayTime, 3000)
 setInterval(alertClient, 30000) 

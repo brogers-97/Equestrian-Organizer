@@ -1,11 +1,12 @@
 <%- include('../partials/header.ejs') %>
 
+<%console.log(tasks)%>
 
 <div class="container">
 
     <div class="today-task">
         <label>Today's Tasks</label>
-        <select class="select-shadow" size="19" onclick= "window.location.href = this.value" style="width: 80%">
+        <select class="today-task-list" size="19" onclick= "window.location.href = this.value">
             <%tasks.forEach(task => {%>
                 <% if(literalDate === task.dataValues.day.toLocaleString().split(',')[0]){%>
                     <option value="/tasks/<%=task.id%>"><%=task.task%></option>
@@ -17,28 +18,49 @@
 
 
     <div class="center-boxes">
-        <form method="GET" action="/horses">
+        <div class="horse-list">
+            <form method="GET" action="/horses">
 
-        <label>Horses</label>
-            <select class="select-shadow" size="8" onclick= "window.location.href = this.value" style="width: 80%">
+                <label>Horses</label>
+            <select class="horse-list-main" size="8" onclick= "window.location.href = this.value">
                 <option class="add-new" value="/horses">-Add New-</option>
                 <%horses.forEach(horse => { %>
                     <option value="/horses/<%=horse.id%>"><%=horse.name%></option>
                     <%})%>
                 </select>
-        </form>
-
+            </form>
+        </div>
+        
         <br>
 
-        <label>Upcoming Tasks</label>
-            <select class="select-shadow" size="8" onclick= "window.location.href = this.value" style="width: 80%">
+        <script>
+            function adjustSelectSize() {
+                const task = document.querySelectorAll('.today-task-list')
+                const taskSize = window.innerWidth >= 1041 ? 45 : 19
+                const horse = document.querySelectorAll('.horse-list-main')
+                const horseSize = window.innerWidth >= 1041 ? 40 : 8
+                task.forEach((select) => {
+                select.size = taskSize;
+                })
+                horse.forEach((select) => {
+                    select.size = horseSize
+                })
+            }
+
+            window.addEventListener('DOMContentLoaded', adjustSelectSize);
+            window.addEventListener('resize', adjustSelectSize);
+        </script>
+
+        <div class="upcoming-task-list">
+            <label>Upcoming Tasks</label>
+            <select class="select-shadow" size="8" onclick= "window.location.href = this.value">
                 <option class="add-new" value="/tasks/new">-Add New-</option>
                 <%tasks.forEach(task => { %>
                     <option value="/tasks/<%=task.id%>"><%=task.task%></option>
                     <%})%>
                     
-            </select>
-            
+                </select>        
+        </div>
     </div>
 
 
@@ -65,7 +87,18 @@
         
         <p class="time-color">Current UV index: <%=sunTimer.current.uv%></p>
     </div>
+    <div class="upcoming-task-list-large">
+        <label>Upcoming Tasks</label>
+        <select class="select-shadow" size="8" onclick= "window.location.href = this.value">
+            <option class="add-new" value="/tasks/new">-Add New-</option>
+            <%tasks.forEach(task => { %>
+                <option value="/tasks/<%=task.id%>"><%=task.task%></option>
+                <%})%>
+                
+            </select>        
     </div>
+    </div>
+    
 
 
 </div>
